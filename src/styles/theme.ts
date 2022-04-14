@@ -1,6 +1,6 @@
 import { extendTheme } from '@chakra-ui/react';
 
-// Sobreescrevendo os temas padroes
+// * Sobreescrevendo os temas padroes
 export const theme = extendTheme({
   colors: {
     gray: {
