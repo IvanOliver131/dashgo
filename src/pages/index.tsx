@@ -20,7 +20,7 @@ export default function Home() {
         borderRadius={8}
         flexDir="column"
       > 
-        <Box align="center">
+        <Box align="center" >
           <Logo />
         </Box>
         
