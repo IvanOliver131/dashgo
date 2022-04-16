@@ -3,6 +3,7 @@ import { Flex, Button, Stack, Box } from '@chakra-ui/react';
 import { Input } from '../components/Form/Input';
 import { Logo } from '../components/Header/Logo';
 
+// Align sinaliza erro porem não esta com erro
 export default function Home() {
   return (
     <Flex 
