@@ -6,7 +6,7 @@ export function Pagination() {
     <HStack
       mt="8"
       justify="space-between"
-      alignContent="center"
+      align="center"
       spacing="6"
     > 
       <Box>

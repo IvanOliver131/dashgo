@@ -26,7 +26,7 @@ export default function UserList() {
           <Flex
             mb="8"
             justifyContent="space-between"
-            alignContent="center"
+            align="center"
           >
             <Heading
               size="lg"

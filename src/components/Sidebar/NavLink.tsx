@@ -10,7 +10,7 @@ export function NavLink({ icon, children, ...rest }: NavLinkProps) {
   return(
     <Link
       display="flex" 
-      alignContent="center"
+      align="center"
       {...rest}
     >
       <Icon 
