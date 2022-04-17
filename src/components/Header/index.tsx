@@ -12,7 +12,7 @@ export function Header() {
 
   const isWideVersion = useBreakpointValue({
     base: false,
-    lg: true,
+    md: true,
   })
 
   return (
