@@ -11,10 +11,11 @@ type SignInFormData = {
 
 // align sinaliza erro porem não esta com erro
 export default function SignIn() {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, formState } = useForm();
 
-  const handleSignIn: SubmitHandler<SignInFormData> = (values) => {
-    
+  const handleSignIn: SubmitHandler<SignInFormData> = async (values) => {
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    console.log('oi')
   }
 
   return (
@@ -61,6 +62,7 @@ export default function SignIn() {
           mt="6" 
           colorScheme="pink" 
           size="lg"
+          isLoading={formState.isSubmitting}
         >
           Entrar
         </Button>
