@@ -2,9 +2,21 @@ import { Flex, Button, Stack, Box } from '@chakra-ui/react';
 
 import { Input } from '../components/Form/Input';
 import { Logo } from '../components/Header/Logo';
+import { SubmitHandler, useForm } from 'react-hook-form';
+
+type SignInFormData = {
+  email: string;
+  password: string;
+}
 
 // align sinaliza erro porem não esta com erro
-export default function Home() {
+export default function SignIn() {
+  const { register, handleSubmit } = useForm();
+
+  const handleSignIn: SubmitHandler<SignInFormData> = (values) => {
+    
+  }
+
   return (
     <Flex 
       w="100vw" 
@@ -20,15 +32,28 @@ export default function Home() {
         p="8" 
         borderRadius={8}
         flexDir="column"
+        onSubmit={handleSubmit(handleSignIn)}
       > 
         <Box align="center" >
           <Logo />
         </Box>
         
         <Stack spacing="4">
-          <Input name="email" type="email" label="E-mail"></Input>
+          <Input 
+            name="email" 
+            type="email" 
+            label="E-mail"
+            {...register('email')}
+          >
+          </Input>
           
-          <Input name="password" type="password" label="Senha"></Input>      
+          <Input 
+            name="password" 
+            type="password" 
+            label="Senha"
+            {...register('password')}
+          >
+          </Input>      
         </Stack>
         
         <Button 
