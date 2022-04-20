@@ -9,7 +9,7 @@ type SignInFormData = {
   password: string;
 }
 
-// align sinaliza erro porem não esta com erro
+// A propriedade align sinaliza erro porem não esta com erro
 export default function SignIn() {
   const { register, handleSubmit, formState } = useForm();
 
