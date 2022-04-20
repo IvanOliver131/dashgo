@@ -1,5 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
+// Escopo basico para o indexHtml
 export default class MyDocument extends Document {
   render() {
     return (
