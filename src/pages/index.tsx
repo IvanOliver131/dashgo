@@ -1,6 +1,10 @@
 import { Flex, Button, Stack, Box } from '@chakra-ui/react';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Input } from '../components/Form/Input';
+
+// Resolvi colocar o logo pra ficar mais bonito
 import { Logo } from '../components/Header/Logo';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -9,13 +13,22 @@ type SignInFormData = {
   password: string;
 }
 
+const signInFormSchema = yup.object().shape({
+  email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
+  password: yup.string().required('Senha obrigatória'),
+})
+
 // A propriedade align sinaliza erro porem não esta com erro
 export default function SignIn() {
-  const { register, handleSubmit, formState } = useForm();
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(signInFormSchema)
+  });
+
+  const { errors } = formState;
 
   const handleSignIn: SubmitHandler<SignInFormData> = async (values) => {
     await new Promise(resolve => setTimeout(resolve, 2000));
-    console.log('oi')
+    console.log(values)
   }
 
   return (
@@ -44,6 +57,7 @@ export default function SignIn() {
             name="email" 
             type="email" 
             label="E-mail"
+            error={errors.email}
             {...register('email')}
           >
           </Input>
@@ -52,6 +66,7 @@ export default function SignIn() {
             name="password" 
             type="password" 
             label="Senha"
+            error={errors.password}
             {...register('password')}
           >
           </Input>      

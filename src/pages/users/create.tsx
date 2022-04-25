@@ -1,6 +1,8 @@
 import { Box, Button, Divider, Flex, Heading, HStack, SimpleGrid, VStack } from "@chakra-ui/react";
 import Link from "next/link";
 import { Input } from "../../components/Form/Input";
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/Sidebar";
