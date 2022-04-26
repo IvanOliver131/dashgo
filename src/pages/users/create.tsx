@@ -15,6 +15,7 @@ type CreateUserFormData = {
   password_confirmation: string;
 }
 
+// Schema para validação
 const createUserFormSchema = yup.object().shape({
   name: yup.string().required('Nome obrigatório'),
   email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
