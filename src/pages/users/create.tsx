@@ -7,6 +7,23 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Header } from "../../components/Header";
 import { Sidebar } from "../../components/Sidebar";
 
+type CreateUserFormData = {
+  name: string;
+  email: string;
+  password: string;
+  password_confirmation: string;
+}
+
+const createUserFormSchema = yup.object().shape({
+  name: yup.string().required('Nome obrigatório'),
+  email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
+  password: yup.string().required('Senha obrigatória').min(6, 'No minimo 6 caracteres'),
+  password_confirmation: yup.string().oneOf([
+    null, yup.ref('password')
+  ])
+})
+
+
 export default function CreateUser() {
   return (  
     <Box>
