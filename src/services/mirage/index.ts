@@ -10,13 +10,22 @@ type User = {
 export function makeServer() {
   const server = createServer({
     models: {
-      user: Model.extend({
-
-      })
+      user: Model.extend<Partial<User>>({})
     },
     
     routes() {
+      // * todas as rotas precisam de api/
+      this.namespace = 'api';
+      this.timing = 750; // faz com que as rotas demorem 750 milesegundos
 
+      this.get('/users');
+      this.post('/users');
+
+      // reseta as rotas depois de utilizar
+      this.namespace = '';
+      this.passthrough();
     }
   });
+
+  return server;
 }
