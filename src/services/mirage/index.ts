@@ -13,6 +13,7 @@ export function makeServer() {
       user: Model.extend<Partial<User>>({})
     },
     
+    // TESTE DE COMMIT
     routes() {
       // * todas as rotas precisam de api/
       this.namespace = 'api';
