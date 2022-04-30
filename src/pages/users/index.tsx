@@ -9,7 +9,7 @@ import { useQuery } from 'react-query';
 export default function UserList() {
   // data vai receber o users
   const { data, isLoading, error } = useQuery('users', async () => {
-    const response = await fetch('http://localhost:3000/api/users');
+    const response = await fetch(`http://localhost:3000/api/users`);
     const data = await response.json();
 
     const users = data.users.map(user => {
@@ -25,6 +25,8 @@ export default function UserList() {
     });
 
     return users;
+  }, {
+    staleTime: 1000 * 5, // 5 seconds
   })
 
   const isWideVersion = useBreakpointValue({
