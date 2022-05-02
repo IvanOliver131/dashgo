@@ -4,30 +4,11 @@ import { RiAddLine, RiPencilLine } from "react-icons/ri";
 import { Header } from "../../components/Header";
 import { Pagination } from "../../components/Pagination";
 import { Sidebar } from "../../components/Sidebar";
-import { useQuery } from 'react-query';
+import { useUsers } from "../../services/hooks/useUsers";
 
 export default function UserList() {
   // data vai receber o users
-  const { data, isLoading, isFetching, error } = useQuery('users', async () => {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users`);
-    const data = await response.json();
-
-    const users = data.users.map(user => {
-      return {
-        id: user.id,
-        email: user.email,
-        createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
-          day: '2-digit',
-          month: 'long',
-          year: 'numeric'
-        })
-      }
-    });
-
-    return users;
-  }, {
-    staleTime: 1000 * 5, // 5 seconds
-  })
+  const { data, isLoading, isFetching, error } = useUsers();
 
   const isWideVersion = useBreakpointValue({
     base: false,
