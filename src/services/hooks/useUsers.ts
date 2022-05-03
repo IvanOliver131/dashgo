@@ -26,6 +26,7 @@ export async function getUsers(page: number): Promise<GetUsersResponse> {
   const users = data.users.map(user => {
     return {
       id: user.id,
+      name: user.name,
       email: user.email,
       createdAt: new Date(user.createdAt).toLocaleDateString('pt-BR', {
         day: '2-digit',
