@@ -59,7 +59,7 @@ export default function SignIn() {
         flexDir="column"
         onSubmit={handleSubmit(handleSignIn)}
       > 
-        <Box align="center" >
+        <Box ml="32%">
           <Logo />
         </Box>
         
