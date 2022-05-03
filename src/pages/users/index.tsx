@@ -1,5 +1,5 @@
 import { Box, Button, Checkbox, Flex, Heading, Icon, Link, Spinner, Table, Tbody, Td, Text, Th, Thead, Tr, useBreakpoint, useBreakpointValue } from "@chakra-ui/react";
-import { GetServerSideProps } from "next";
+// import { GetServerSideProps } from "next";
 import NextLink from "next/link";
 
 import { useState } from "react";
@@ -11,12 +11,14 @@ import { api } from "../../services/api";
 import { getUsers, useUsers } from "../../services/hooks/useUsers";
 import { queryClient } from "../../services/queryClient";
 
-export default function UserList({ users, totalCount }) {
+// Utilizar com serverSide
+// export default function UserList({ users, totalCount }) {
+export default function UserList() {
   const [page, setPage] = useState(1);
   // data vai receber o users
   const { data, isLoading, isFetching, error } = useUsers(page);
   
-  // utilizando o serverSide
+  // Utilizar com serverSide
   // const { data, isLoading, isFetching, error } = useUsers(page, {
   //   initialData: users
   // });
@@ -140,7 +142,7 @@ export default function UserList({ users, totalCount }) {
                         </Td>
                         { isWideVersion && 
                           <Td>
-                            {user.createdAt}
+                            {user.created_at}
                           </Td> 
                         }
                         { isWideVersion && 
