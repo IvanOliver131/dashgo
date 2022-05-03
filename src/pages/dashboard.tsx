@@ -27,7 +27,7 @@ const options = {
     enabled: false
   },
   // xasis da erro
-  xAses: [{
+  xasis: {
     type: 'datetime',
     axisBorder: {
       color: theme.colors.gray[600],
@@ -44,7 +44,7 @@ const options = {
       '2022-04-19T00:00:00.000Z',
       '2022-04-20T00:00:00.000Z',
     ],
-  }],
+  },
   fill: {
     opacity: 0.3,
     type: 'gradient',
