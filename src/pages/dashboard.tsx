@@ -26,7 +26,8 @@ const options = {
   tooltip: {
     enabled: false
   },
-  xaxis: {
+  // xasis da erro
+  xAses: [{
     type: 'datetime',
     axisBorder: {
       color: theme.colors.gray[600],
@@ -43,7 +44,7 @@ const options = {
       '2022-04-19T00:00:00.000Z',
       '2022-04-20T00:00:00.000Z',
     ],
-  },
+  }],
   fill: {
     opacity: 0.3,
     type: 'gradient',
@@ -113,7 +114,6 @@ export default function Dashboard() {
           </Box>
         </SimpleGrid>
       </Flex>
-    </Flex>
-    
+    </Flex> 
   );
 }
