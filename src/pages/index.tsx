@@ -52,7 +52,7 @@ export default function SignIn() {
       <Flex 
         as="form"
         width="100%"
-        maxWidth={280}
+        maxWidth={320}
         bg="gray.800"
         p="8" 
         borderRadius={8}
