@@ -94,9 +94,74 @@ export default function UserList() {
               <Spinner />
             </Flex>
           ) : error ? (
-            <Flex justify="center">
-              <Text>Falha ao obter os dados dos usuários</Text>
-            </Flex>
+            <>       
+              <Table colorScheme="whiteAlpha">
+                <Thead>
+                  <Tr>
+                    <Th
+                      px={["4", "4", "6"]}
+                      color="gray.300"
+                      width="8"
+                    >
+                      <Checkbox colorScheme="pink" />
+                    </Th>
+                    <Th>
+                      (Dados Ficticios) Usuário - Falha ao obter os dados dos usuários 
+                    </Th>
+
+                    { isWideVersion && 
+                      <Th>
+                        Data de cadastro
+                      </Th> 
+                    }
+                    
+                    <Th width="8"></Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  <Tr>
+                    <Td px={["4", "4", "6"]}>
+                      <Checkbox colorScheme="pink" />
+                    </Td>
+                    <Td>
+                      <Box>
+                        <Link 
+                          color="purple.400"
+                        >
+                          <Text fontWeight="bold">Ivan Oliveira</Text>
+                        </Link>
+                        <Text fontSize="sm" color="gray.300">ivanoliver131@gmail.com</Text>
+                      </Box>
+                    </Td>
+                    { isWideVersion && 
+                      <Td>
+                        25 de Abril de 2022
+                      </Td> 
+                    }
+                    { isWideVersion && 
+                      <Td>
+                        <Button 
+                          as="a" 
+                          size="sm" 
+                          fontSize="small"
+                          colorScheme="purple"
+                          cursor="pointer"
+                          leftIcon={<Icon as={RiPencilLine} fontSize="16" />}
+                        >
+                          Editar
+                        </Button>
+                      </Td> 
+                    }
+                  </Tr>
+                </Tbody>
+              </Table>
+
+              <Pagination 
+                totalCountOfRegisters={200}
+                currentPage={page}
+                onPageChange={setPage}
+              />
+            </>
           ) : (
             <>
               <Table colorScheme="whiteAlpha">
