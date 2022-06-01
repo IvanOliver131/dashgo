@@ -6,7 +6,7 @@ import { NotificationsNav } from "./NotificationsNav";
 import { Profile } from "./Profile";
 import { SearchBox } from "./SearchBox";
 
-
+// Cabeçalho
 export function Header() {
   const { onOpen } = useSidebarDrawer();
 
